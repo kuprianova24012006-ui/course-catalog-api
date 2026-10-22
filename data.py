@@ -1,64 +1,60 @@
 from models import Course
 
 
-courses = [
+COURSES: list[Course] = [
     Course(
-        id=1,
-        title="Python Basics",
-        description="Introduction to Python programming",
+        id="modern-frontend",
+        title="Modern Frontend: React & Next.js",
+        description="React 19, Server Components, and the App Router.",
         credits=5,
-        is_elective=False,
-        likes=12,
+        likes=24,
     ),
     Course(
-        id=2,
-        title="Web Development",
-        description="Building websites and web applications",
-        credits=6,
-        is_elective=False,
-        likes=25,
-    ),
-    Course(
-        id=3,
-        title="Database Systems",
-        description="Working with databases and SQL",
+        id="backend-fastapi",
+        title="Backend Foundations: FastAPI",
+        description="Async REST APIs in Python with FastAPI and Pydantic.",
         credits=5,
-        is_elective=False,
-        likes=18,
+        likes=19,
     ),
     Course(
-        id=4,
-        title="Machine Learning",
-        description="Introduction to machine learning",
-        credits=6,
-        is_elective=True,
-        likes=40,
-    ),
-    Course(
-        id=5,
-        title="Mobile Development",
-        description="Building mobile applications",
-        credits=4,
-        is_elective=True,
+        id="databases-postgresql",
+        title="Relational Databases: PostgreSQL",
+        description="Schemas, SQLAlchemy, and migrations with Alembic.",
+        credits=5,
         likes=15,
     ),
     Course(
-        id=6,
-        title="Cybersecurity",
-        description="Fundamentals of information security",
+        id="api-design",
+        title="API Design: REST vs GraphQL",
+        description="Comparing REST and GraphQL in one hands-on project.",
+        credits=4,
+        is_elective=True,
+        likes=11,
+    ),
+    Course(
+        id="web-security",
+        title="Web Security Essentials",
+        description="JWT/OAuth2, XSS, CSRF, and SQL injection defense.",
+        credits=4,
+        likes=21,
+    ),
+    Course(
+        id="ai-integration",
+        title="AI/LLM Integration",
+        description="LLM features in an app via the OpenAI API.",
         credits=5,
         is_elective=True,
-        likes=30,
+        likes=32,
     ),
 ]
 
 
 def get_all_courses() -> list[Course]:
-    return courses
+    return COURSES
 
 
-def find_course(course_id: int) -> Course | None:
-    for course in courses:
+def find_course(course_id: str) -> Course | None:
+    for course in COURSES:
         if course.id == course_id:
             return course
     return None
